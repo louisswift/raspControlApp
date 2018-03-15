@@ -1,0 +1,88 @@
+<!--
+  Generated template for the Device page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+  <ion-navbar>
+   <ion-title>Network</ion-title>
+   <button style="float: right;"(click)="disconnectFromBox()" ><img style="width: 25px; height:25px; float: right;" src="assets/img/close.png"/></button>
+  </ion-navbar>
+ </ion-header>
+ 
+ <ion-content style="background-color:#ecf0f1" class="outer-content">
+    <ion-refresher (ionRefresh)="doRefresh($event)">
+        <ion-refresher-content
+          pullingIcon="arrow-dropdown"
+          pullingText="Pull to refresh"
+          refreshingSpinner="ios"
+          refreshingText="Refreshing...">
+        </ion-refresher-content>
+      </ion-refresher>
+  <ion-list>
+  
+   <ion-list-header>
+     
+    Network Info
+     
+   </ion-list-header>
+  
+   
+ 
+    <ion-item>
+       
+     <ion-label>Current network: {{currentNetwork[0]}}</ion-label>
+    </ion-item>
+    <ion-item>
+     <ion-label>IP: {{currentNetwork[1]}}</ion-label>
+    </ion-item>
+    <ion-item>
+      <ion-label>LAN IP: {{currentNetwork[2]}}</ion-label>
+     </ion-item>
+    <ion-list-header >Network Mode
+        
+        </ion-list-header>
+    
+    <ion-list [(ngModel)]="netMode" radio-group>
+       
+   
+     <ion-item>
+       <ion-label>Ad hoc</ion-label>
+       <ion-radio (click)="setNetworkMode(0)" [checked]="networkModeCheckbox[0]" value="adhoc"></ion-radio>
+     </ion-item>
+   
+     <ion-item>
+       <ion-label>Wifi</ion-label>
+       <ion-radio (click)="setNetworkMode(1)" [checked]="networkModeCheckbox[1]" value="wifi"></ion-radio>
+     </ion-item>
+   
+ 
+  
+ 
+  
+    
+   
+ 
+ 
+ 
+     <ion-list-header >Available networks
+    
+    </ion-list-header>
+  
+    <ion-item *ngFor="let wlan of networks; let i = index;" (click)="addNetwork(i)" style="height: 60px"><p style="position: absolute;  top: 5px !important" >{{networks[i].ssid}}</p> 
+      <img style="width: 35px; height:35px; float: right;" src="{{networks[i].security}}"/>
+      <progress style="height: 10px; left:5px; position: absolute; bottom: 5px; width: 100%" id="progressbar" max="100" value="{{networks[i].quality}}"> </progress>
+     </ion-item>
+  </ion-list>
+</ion-list>
+ 
+ 
+  
+ 
+  
+         
+       
+ 
+ </ion-content>
+ 

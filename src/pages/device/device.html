@@ -1,0 +1,38 @@
+
+<ion-header>
+<ion-navbar>
+ <ion-title>{{device.name}} </ion-title>
+ <button style="float: right;"(click)="disconnectFromBox()" ><img style="width: 25px; height:25px; float: right;" src="assets/img/close.png"/></button>
+</ion-navbar>
+</ion-header>
+<ion-content>
+<ion-card>
+  <ion-list-header>
+    
+        <ion-title>Home </ion-title>
+      </ion-list-header>
+      <ion-item>
+      <img style="width: 88.8px; height:50px; float: right;" src="{{boxDetail.image}}"/>
+      <p>{{device.name}}</p>
+      <p>{{device.id}}</p>
+     </ion-item>
+
+
+     
+
+  <ion-list>
+    <button (click)="openPage('NetworkPage')" ion-item>
+      <ion-icon name="wifi" item-start></ion-icon>
+      Network
+    </button>
+
+    <button (click)="openPage('main-settings')" ion-item>
+      <ion-icon  name="build" item-start></ion-icon>
+      Settings
+    </button>
+    
+    
+
+  </ion-list>
+</ion-card>
+</ion-content>

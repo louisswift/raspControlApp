@@ -1,0 +1,8 @@
+{
+  "name": "raspControl2",
+  "app_id": "4d9de316",
+  "type": "ionic-angular",
+  "integrations": {
+    "cordova": {}
+  }
+}

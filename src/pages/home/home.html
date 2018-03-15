@@ -1,0 +1,27 @@
+<ion-header style="background-color: #212121 !important; border-width:1px; border-style: solid;border-bottom-color: #e74c3c">
+  <ion-navbar style="background-color: #212121 !important">
+    <button style="background-color: #212121 !important; color: #e74c3c;" ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title style="background-color: #212121 !important; color: #e74c3c;"><p style="color: #e74c3c !important; ">Home</p></ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content style="background: #424242 !important;" padding>
+  
+  
+ <button (click)="startScanning()" ion-button color="secondary" style="width:100%; padding: 5px; background-color: #212121 !important;">Scan for boxes</button>
+ <ion-item style="background: #424242 !important;">
+  <h1 style="color: white">Boxes</h1>
+  <ion-badge item-right>{{num}}</ion-badge>
+ </ion-item>
+
+ <ion-list style="background: #424242 !important;">
+  <ion-item style="background: #424242 !important;" *ngFor="let device of devices; let i = index;" (click)="connectToDevice(i)">
+   <h3 style="font-size: 17px; color: white; " ><b>{{device.name}}</b></h3>
+   <img style="width: 30px; height:38px; float: right;" src="assets/img/logo.png"/>
+   <p style="color: white">{{device.id}}</p>
+  </ion-item>
+ </ion-list>
+ 
+</ion-content>
